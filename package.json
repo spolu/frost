@@ -1,0 +1,21 @@
+{
+  "name": "frost",
+  "description": "Byzantine Resilient Secure Multicast", 
+  "author": {
+    "name": "Stanislas Polu",
+    "email": "polu.stanislas@gmail.com",
+    "url": "http://github.com/spolu" 
+  },
+  "version": "0.0.1",
+  "dependencies": {
+    "fba": "http://scs.stanford.edu/~spolu/noindex/fba.js.git/",
+    "ws": "0.4.x",
+    "async": "0.9.x"
+  },
+  "licenses": [ { "type": "MIT" } ],
+  "main": "./index.js",
+  "scripts": {
+    "test": "nodeunit test/unit_*"
+  }
+}
+
