@@ -39,10 +39,6 @@ async.parallel([
     process.exit(0);
   }
 
-  f1.quorum_suggest(true);
-  f2.quorum_suggest(true);
-  f3.quorum_suggest(true);
-
   f1.receive('test', function(from, sha, payload) {
     console.log('f1 RECEIVED test ' + from + ' ' + payload);
   });
