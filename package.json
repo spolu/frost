@@ -8,7 +8,7 @@
   },
   "version": "0.0.1",
   "dependencies": {
-    "fba": "http://scs.stanford.edu/~spolu/noindex/fba.js.git/",
+    "ed25519": "https://github.com/dazoe/ed25519/tarball/master",
     "ws": "0.4.x",
     "async": "0.9.x"
   },
