@@ -42,24 +42,32 @@ async.parallel([
   f1.receive('test', function(from, sha, payload) {
     console.log('f1 RECEIVED test ' + from + ' ' + payload);
   });
-  f1.send('test', 'foo bar', function(err, sha) {
+  f1.send('test', 'foo bar f1-1', function(err, sha) {
     if(err) {
       console.log(err);
     }
     else {
-      console.log('OK: ' + sha);
+      console.log('OK f1-1: ' + sha);
+      f1.send('test', 'foo bar f1-2', function(err, sha) {
+        if(err) {
+          console.log(err);
+        }
+        else {
+          console.log('OK f1-2: ' + sha);
+        }
+      });
     }
   });
 
   f2.receive('test', function(from, sha, payload) {
     console.log('f2 RECEIVED test ' + from + ' ' + payload);
-    if(from === f1.public_key()) {
-      f2.send('test', 'foo bar 2', function(err, sha) {
+    if(payload === 'foo bar f1-1') {
+      f2.send('test', 'foo bar f2-1', function(err, sha) {
         if(err) {
           console.log(err);
         }
         else {
-          console.log('OK: ' + sha);
+          console.log('OK f2-1: ' + sha);
         }
       });
     }
